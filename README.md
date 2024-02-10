@@ -9,4 +9,16 @@ Featured Algorithms
 Featured Data Structures
 
 - Arrays
+
+
 - Singly Linked Lists
+   - Implemented Methods
+     - Push
+     - Pop
+     - Unshift
+     - Shift
+     - Length
+     - GetAt
+     - RemoveAt
+     - InsertAt
+     

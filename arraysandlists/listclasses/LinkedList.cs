@@ -126,46 +126,121 @@ public class LinkedList<T>
 
     public T? Shift()
     {
-        if(Length == 0){
+        if (Length == 0)
+        {
             return default;
         }
         else if (Length == 1)
         {
             var oldHead = Head;
             Pop();
-            
+
             return oldHead!.Value;
         }
         else
         {
             Node<T> oldHead = Head!;
             Head = Head!.Next;
-            Length --;
+            Length--;
             return oldHead!.Value;
 
         }
     }
 
 
-    public T? GetAt(int index){
-       if(index > Length - 1){
-        
-         throw new ArgumentOutOfRangeException();
-       }
-       if(index == 0 && Head != null){
-           return Head.Value;
-       } else {
-         Node<T> currentNode = Head!;
-         int count = 0;
-         while (currentNode.Next != null && count < index){
-           currentNode = currentNode.Next;
-           count++;
-         }
-         return currentNode.Value;
-       }
+    public T? GetAt(int index)
+    {
+        if (index > Length - 1)
+        {
+
+            throw new ArgumentOutOfRangeException();
+        }
+        if (index == 0 && Head != null)
+        {
+            return Head.Value;
+        }
+        else
+        {
+            Node<T> currentNode = Head!;
+            int count = 0;
+            while (currentNode.Next != null && count < index)
+            {
+                currentNode = currentNode.Next;
+                count++;
+            }
+            return currentNode.Value;
+        }
     }
 
-    
+
+    public void RemoveAt(int index)
+    {
+        if (index > Length - 1)
+        {
+
+            throw new ArgumentOutOfRangeException();
+        }
+        if (index == 0 && Head != null)
+        {
+            Shift();
+
+        }
+        else
+        {
+            Node<T> currentNode = Head!;
+            Node<T> previousNode = new();
+            int count = 0;
+            while (currentNode.Next != null && count < index)
+            {
+                previousNode = currentNode;
+                currentNode = currentNode.Next;
+                count++;
+            }
+            previousNode.Next = currentNode.Next;
+            Length--;
+        }
+
+    }
+
+    public void InsertAt(int index, T value)
+    {
+        if (index > Length - 1)
+        {
+
+            throw new ArgumentOutOfRangeException();
+        }
+        if (index == 0 && Head != null)
+        {
+            UnShift(value);
+
+
+        }
+        else
+        {
+            Node<T> currentNode = Head!;
+            Node<T> previousNode = new();
+            int count = 0;
+            while (currentNode.Next != null && count < index)
+            {
+                previousNode = currentNode;
+                currentNode = currentNode.Next;
+                count++;
+            }
+
+            Node<T> oldCurrentNode = currentNode;
+            currentNode = new(value)
+            {
+                Next = oldCurrentNode
+            };
+            previousNode.Next = currentNode;
+
+
+            Length++;
+        }
+
+    }
+
+
 
 
 

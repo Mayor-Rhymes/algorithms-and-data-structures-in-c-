@@ -1,6 +1,6 @@
 ﻿
 
-LinkedList<int> numberList = new LinkedList<int>();
+LinkedList<int> numberList = new LinkedList<int>(10);
 
 Node<int> node = new();
 Node<int> node2 = new(4);
@@ -9,8 +9,8 @@ Node<int> node2 = new(4);
 // node.Value = 10;
 
 
-// numberList.Push(11);
-// numberList.Push(12);
+numberList.Push(11);
+numberList.Push(12);
 
 // Console.WriteLine(numberList.Length);
 // Console.WriteLine(numberList.Tail);
@@ -27,6 +27,9 @@ Node<int> node2 = new(4);
 
 // numberList.UnShift(89);
 // numberList.Shift();
-Console.WriteLine(numberList.GetAt(3));
+// numberList.RemoveAt(1);
+numberList.InsertAt(1, 98);
+
+Console.WriteLine(numberList.GetAt(2));
 
 
