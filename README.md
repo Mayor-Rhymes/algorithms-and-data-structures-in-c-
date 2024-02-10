@@ -9,3 +9,4 @@ Featured Algorithms
 Featured Data Structures
 
 - Arrays
+- Singly Linked Lists
